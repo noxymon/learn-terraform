@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-    cluster_name = "aladinmall-prod"
+    cluster_name = "internal-aladinmall-prod"
 }
 
 module "vpc" {
