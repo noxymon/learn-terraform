@@ -64,11 +64,11 @@ module "eks" {
 }
 
 data "aws_eks_cluster" "cluster" {
-  name = module.eks.cluster_id
+  name = local.cluster_name
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.eks.cluster_id
+  name = local.cluster_name
 }
 
 provider "kubernetes" {
@@ -81,7 +81,7 @@ module "eks-kubeconfig" {
   source  = "hyperbadger/eks-kubeconfig/aws"
   version = "2.0.0"
 
-  cluster_name = module.eks.cluster_id
+  cluster_name = local.cluster_name
 }
 
 
