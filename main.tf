@@ -61,5 +61,9 @@ module "eks" {
       desired_size=1
     }
   }
+}
 
+resource "local_file" "kubeconfig" {
+  content  = module.eks-kubeconfig.kubeconfig
+  filename = "kubeconfig_${local.cluster_name}"
 }
